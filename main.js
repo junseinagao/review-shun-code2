@@ -22,10 +22,9 @@ const app = new Vue({
     },
     eliminate: function (index) {
       this.patientInfo.splice(index, 1);
-      localStorage.localList = JSON.stringify(this.patientInfo);
     },
     calcStatus: function () {
-      var bmi = this.inputWeight / (this.inputHeight / 100) ** 2;
+      let bmi = this.inputWeight / (this.inputHeight / 100) ** 2;
       if (this.inputWeight == "" || this.inputHeight == "") {
         this.tempStatus = "";
       } else if (bmi <= 18.5) {
@@ -42,5 +41,10 @@ const app = new Vue({
   },
   mounted: function () {
     this.patientInfo = JSON.parse(localStorage.localList);
+  },
+  watch: {
+    patientInfo: function () {
+      localStorage.localList = JSON.stringify(this.patientInfo);
+    },
   },
 });
