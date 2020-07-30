@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header><h1>Patient List</h1></header>
+    <div id="app">
+      <p>Please type patient information.</p>
+      <div>
+        Name: <input type="text" v-model="inputName" /> Age:
+        <input type="text" v-model="inputAge" /> Weight:
+        <input type="text" v-model="inputWeight" /> Height:
+        <input type="text" v-model="inputHeight" />
+        <button v-on:click="submit">submit!</button>
+        <p v-for="(pInfo, index) in patientInfo">
+          Name: {{ pInfo.name }} Age: {{ pInfo.age}} Weight: {{ pInfo.weight }}
+          Height: {{ pInfo.height }} Status: {{ pInfo.status}}
+          <button v-on:click="eliminate(index)">delete</button>
+        </p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
