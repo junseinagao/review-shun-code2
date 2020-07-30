@@ -22,7 +22,6 @@ const app = new Vue({
     },
     eliminate: function (index) {
       this.patientInfo.splice(index, 1);
-      localStorage.localList = JSON.stringify(this.patientInfo);
     },
     calcStatus: function () {
       let bmi = this.inputWeight / (this.inputHeight / 100) ** 2;
@@ -42,5 +41,10 @@ const app = new Vue({
   },
   mounted: function () {
     this.patientInfo = JSON.parse(localStorage.localList);
+  },
+  watch: {
+    patientInfo: function () {
+      localStorage.localList = JSON.stringify(this.patientInfo);
+    },
   },
 });
