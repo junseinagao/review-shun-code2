@@ -11,9 +11,9 @@
       <p>Please type patient information.</p>
       <div>
         Name: <input type="text" v-model="inputName" /> Age:
-        <input type="text" v-model="inputAge" /> Weight:
-        <input type="text" v-model="inputWeight" /> Height:
-        <input type="text" v-model="inputHeight" />
+        <input type="number" v-model="inputAge" /> Weight:
+        <input type="number" v-model="inputWeight" /> Height:
+        <input type="number" v-model="inputHeight" />
         <button v-on:click="submit">submit!</button>
         <p v-for="(pInfo, index) in patientInfo">
           Name: {{ pInfo.name }} Age: {{ pInfo.age}} Weight: {{ pInfo.weight }}
