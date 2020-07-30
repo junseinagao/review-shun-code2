@@ -25,7 +25,7 @@ const app = new Vue({
       localStorage.localList = JSON.stringify(this.patientInfo);
     },
     calcStatus: function () {
-      var bmi = this.inputWeight / (this.inputHeight / 100) ** 2;
+      let bmi = this.inputWeight / (this.inputHeight / 100) ** 2;
       if (this.inputWeight == "" || this.inputHeight == "") {
         this.tempStatus = "";
       } else if (bmi <= 18.5) {
